@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular test</title>
+</head>
+<body>
+    <div ng-controller="AppCtrl">
+        <p ng-if="data.error">Error: "{{data.error}}"</p>
+        <form ng-submit="data.add()">
+            <input ng-model="data._new" required />
+            <button>Add</button>
+        </form>
+        <ul>
+            <li pouch-repeat="item in list">
+                {{item.value}} <button ng-click="data.remove(item)">Remove</button>
+            </li>
+        </ul>
+    </div>
+
+    <script src="lib/pouchdb-nightly.min.js"></script>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-pouchdb.js"></script>
+    <script src="db.service.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
